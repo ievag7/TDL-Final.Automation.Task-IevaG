@@ -46,6 +46,7 @@ Then('I am on products page', async function() {
 })
 
 Then(`I should see only searched {string} results`, async function(product) {
+    // REVIEW: Not exacly what I had in mind, but this makes 100% sense too, good
     const onlySearchedProducts = await productsPage.onlySearchedProducts(product);
     // console.log(onlySearchedProducts);
     expect(onlySearchedProducts).toBeTruthy();
@@ -70,7 +71,9 @@ When("I check the item count in the cart", async function() {
 })
 
 Then('I should see the cart item count increased by 1', async function() {
-    
+    // REVIEW: Hmm, it doesn't make much sense to get initial value after you have already added an item
+    // You should have saved the initial count before adding a product.
+    // Also a better approach would be to wait until counter increases by 1 in case the counter incrementes with some delay.
     const initialCartQuantity = await productsPage.initialCartQuantityNumber(); 
     console.log('initial:', initialCartQuantity);
     const currentCartQuantity = await orderPage.currentCartItemCount();
@@ -84,6 +87,7 @@ Then('I should see the cart item count increased by 1', async function() {
 })
 
 When('I delete one product from the cart', async function() {
+    // REVIEW: This element is not clickable.
     await orderPage.deleteItemButton.waitForClickable({ timeout: 2000 });
     await orderPage.deleteItemButton.click();
 })

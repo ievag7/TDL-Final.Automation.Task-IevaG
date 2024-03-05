@@ -1,5 +1,6 @@
 Feature: Unregistered user checkout
 
+@order
 Scenario: User must sign in before completing checkout
     Given I am on the home page
     When I select "Women -> Tops" menu category 
