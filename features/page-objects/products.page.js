@@ -11,6 +11,7 @@ class ProductsPage extends Page {
         await sortTypes.click();
 }
 
+// REVIEW: There are many formatting consistencies especially with indentation.
 get selectProduct() {return $('.product_list .product_img_link'); }
 get productsField() {return $(`//ul[contains(@class, "product_list grid row")]`); }
 

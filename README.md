@@ -8,6 +8,8 @@ This project tests website: http://www.automationpractice.pl/
 * Chrome browser downloaded
 
 ## Initiate a WebdriverIO Setup
+REVIEW: Nobody needs to know how the project was created. If somebody wants to run this project, they will not initialize a new WebdriverIO project.
+
 Run command:
 ```
 npm init wdio@latest .
